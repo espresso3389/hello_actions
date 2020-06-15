@@ -39,9 +39,11 @@ jobs:
     
     - name: Select a secret
       run: |
-        echo "::set-env name=from_secret::${{ secrets["SECRET_${{ env.SELECTOR }}"] }}"
+        echo "::set-env name=from_secret::$${{ env.SELECTOR }}"
       env:
-        SELECTOR: "B"
+        SELECTOR: "A"
+        A: ${{ secrets.SECRET_A }}
+        B: ${{ secrets.SECRET_B }}
     
     - name: Dump GitHub context
       env:
