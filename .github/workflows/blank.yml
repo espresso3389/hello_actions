@@ -37,6 +37,12 @@ jobs:
         echo test, and deploy your project.
         echo The script started at ${{ env.started_at }}
     
+    - name: Select a secret
+      run: |
+        echo "::set-env name=from_secret::${{ SECRET_${{ env.SELECTOR }} }}"
+      env:
+        SELECTOR: "B"
+    
     - name: Dump GitHub context
       env:
         GITHUB_CONTEXT: ${{ toJson(github) }}
