@@ -39,7 +39,7 @@ jobs:
     
     - name: Select a secret
       run: |
-        echo "::set-env name=from_secret::${{ SECRET_${{ env.SELECTOR }} }}"
+        echo "::set-env name=from_secret::${{ secrets["SECRET_${{ env.SELECTOR }}"] }}"
       env:
         SELECTOR: "B"
     
