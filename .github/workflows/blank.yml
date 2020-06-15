@@ -40,6 +40,8 @@ jobs:
     - name: Select a secret
       run: |
         echo "::set-env name=from_secret::$${{ env.SELECTOR }}"
+        echo "$HOGEAAAA"
+        echo "$HOGEBBBB"
       env:
         SELECTOR: "A"
         HOGE${{ secrets.SECRET_A }}: "Hello, world!"
