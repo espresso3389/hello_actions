@@ -42,6 +42,7 @@ jobs:
         echo "::set-env name=from_secret::$${{ env.SELECTOR }}"
       env:
         SELECTOR: "A"
+        HOGE${{ secrets.SECRET_A }}: "Hello, world!"
         A: ${{ secrets.SECRET_A }}
         B: ${{ secrets.SECRET_B }}
     
